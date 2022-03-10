@@ -16,8 +16,8 @@ export function Quiz() {
     correctAnswer: 0,
   };
 
-  const checkAnswer = (index, setColor, key) => {
-    index === mockData.correctAnswer ? setColor('green') : setColor('red');
+  const checkAnswer = index => {
+    return index === mockData.correctAnswer;
   };
 
   return <QuizView data={mockData} press={checkAnswer} />;

@@ -15,7 +15,7 @@ const style = {
   },
 };
 
-export const Button = ({title, color = '#ff0000', size, ...reset}) => {
+export const Button = ({title, isCorrect, size, ...reset}) => {
   let dynamicStyle = {};
   switch (size) {
     case 'xxs':
@@ -66,7 +66,9 @@ export const Button = ({title, color = '#ff0000', size, ...reset}) => {
   }
 
   return (
-    <TouchableOpacity style={[style.container, dynamicStyle]} {...reset}>
+    <TouchableOpacity
+      style={[style.container, dynamicStyle, {backgroundColor: isCorrect}]}
+      {...reset}>
       <Text style={style.title}>{title}</Text>
     </TouchableOpacity>
   );
