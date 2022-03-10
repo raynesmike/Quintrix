@@ -1,6 +1,7 @@
 import React from 'react';
 import {SafeAreaView, View} from 'react-native';
-import {Button} from './src/ButtonDumb';
+import {Button} from './src/dumb/button/Button';
+import {Quiz} from './src/smart/quiz/Quiz';
 
 const App = () => {
   const styles = {
@@ -10,15 +11,7 @@ const App = () => {
   };
   return (
     <SafeAreaView>
-      <Button />
-      <View style={styles.divider} size={'xxs'} />
-      <Button title="New Button" size={'lg'} />
-      <View style={styles.divider} />
-      <Button title="New Button" size={'lg'} />
-      <View style={styles.divider} />
-      <Button title="New Button" size={'sm'} />
-      <View style={styles.divider} />
-      <Button title="New Button" size={'xxxs'} />
+      <Quiz />
     </SafeAreaView>
   );
 };
