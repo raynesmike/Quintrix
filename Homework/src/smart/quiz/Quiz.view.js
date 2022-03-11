@@ -3,9 +3,9 @@ import React, {useState} from 'react';
 import {Button} from '../../dumb/button/Button';
 import {styles} from './Quiz.style';
 
-export function QuizView({data, press}) {
+export function QuizView({data, checkAnswer}) {
   const [color, setColor] = useState('blue');
-  const [isCorrect, setCorrect] = useState(false);
+  const [isCorrect, setCorrect] = useState();
   function changeColor() {
     setColor('red');
   }
@@ -15,8 +15,11 @@ export function QuizView({data, press}) {
       {data.answers.map((answers, index) => (
         <View key={'Answer' + index} style={styles.answerContainer}>
           <Button
-            onPress={() => (press(index) ? setColor('green') : setColor('red'))}
-            isCorrect={color}
+            onPress={() => setCorrect(checkAnswer(index))}
+            myAnswer={isCorrect}
+            correctAnswer={data.correctAnswer}
+            randomKey={index}
+            myColor={color}
             title={answers}
           />
         </View>

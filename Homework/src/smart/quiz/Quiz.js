@@ -17,8 +17,8 @@ export function Quiz() {
   };
 
   const checkAnswer = index => {
-    return index === mockData.correctAnswer;
+    return index;
   };
 
-  return <QuizView data={mockData} press={checkAnswer} />;
+  return <QuizView data={mockData} checkAnswer={checkAnswer} />;
 }
